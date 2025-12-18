@@ -63,7 +63,8 @@ app.get("/auth/google/callback", async (req, res) => {
     oauthClient.setCredentials(tokens);
 
     // Redirect to frontend dashboard
-    res.redirect("http://localhost:3000/dashboard");
+    res.redirect(`${process.env.FRONTEND_URL}/dashboard`);
+
   } catch (error) {
     console.error(error);
     res.status(500).send("Google login failed");
