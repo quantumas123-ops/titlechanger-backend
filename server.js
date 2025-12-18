@@ -10,7 +10,8 @@ const { OAuth2Client } = require("google-auth-library");
 const { google } = require("googleapis");
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
+
 
 app.use(cors());
 app.use(express.json());
@@ -213,5 +214,6 @@ app.post("/youtube/update-titles", async (req, res) => {
 // START SERVER
 // ===============================
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
+;
